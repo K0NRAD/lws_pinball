@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Hind');
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 10px;
+	margin: 0;
+	color: #dee2e6;
+	background-color: #212529;
+	font-family: 'Hind', sans-serif;
+	text-transform: uppercase;
+	overflow-y: auto;
+}
+
+.container {
+	position: relative;
+	line-height: 0;
+	overflow: visible;
+	margin-top: 0;
+}
+
+.score {
+	position: absolute;
+	top: 10px;
+	line-height: 1;
+	z-index: 10;
+}
+
+.score span {
+	font-size: 3.25rem;
+}
+
+.current-score {
+	left: 10px;
+}
+
+.high-score {
+	text-align: right;
+	right: 10px;
+}
+
+.trigger {
+  appearance: none;
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	bottom: 10px;
+  border: 0;
+	border-radius: 50%;
+  color: #fff;
+	background-color: #e64980;
+	text-align: center;
+	line-height: 80px;
+	font-size: 1.25rem;
+  text-transform: inherit;
+	cursor: pointer;
+	user-select: none;
+  outline: none;
+	z-index: 10;
+}
+
+.left-trigger {
+	left: 10px;
+}
+
+.right-trigger {
+	right: 60px;
+}
+
+canvas {
+	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: 0 5px 25px rgba(0, 0, 0, 0.75);
+}
+
+/* responsive scaling, because pinball tables are tall */
+@media (min-height: 0px) {
+	.container { transform: scale(0.3); transform-origin: top center; }
+}
+@media (min-height: 400px) {
+	.container { transform: scale(0.45); transform-origin: top center; }
+}
+@media (min-height: 600px) {
+	.container { transform: scale(0.6); transform-origin: top center; }
+}
+@media (min-height: 800px) {
+	.container { transform: scale(0.75); transform-origin: top center; }
+}
+@media (min-height: 1000px) {
+	.container { transform: scale(0.9); transform-origin: top center; }
+}
+
+/* Spezifische Anpassungen für sehr niedrige Höhen */
+@media (max-height: 700px) {
+  body {
+    padding-top: 5px;
+  }
+  
+  .container {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  .score {
+    top: 5px;
+  }
+}
+
+/* Zusätzliche Anpassungen für extrem kleine Bildschirme */
+@media (max-height: 500px) {
+  .score span {
+    font-size: 2.5rem;
+  }
+  
+  .trigger {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+  }
+}
